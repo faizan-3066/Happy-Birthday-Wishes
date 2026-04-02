@@ -1,0 +1,244 @@
+/* App-specific styles */
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom animations for the birthday theme */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.bg-gradient-romantic {
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Enhanced glow effects */
+.glow-text {
+  text-shadow: 
+    0 0 10px rgba(255, 107, 157, 0.8),
+    0 0 20px rgba(255, 107, 157, 0.6),
+    0 0 30px rgba(255, 107, 157, 0.4),
+    0 0 40px rgba(255, 107, 157, 0.2);
+}
+
+/* Glass morphism enhancements */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 107, 157, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    0 0 20px rgba(255, 107, 157, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.glass-pink {
+  background: rgba(255, 107, 157, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 157, 0.15);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    0 0 30px rgba(255, 107, 157, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Particle effects */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* Heart beat animation variations */
+@keyframes heartbeat-strong {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.15); }
+  20% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  40% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  60% { transform: scale(1); }
+}
+
+.animate-heartbeat-strong {
+  animation: heartbeat-strong 1.2s ease-in-out infinite;
+}
+
+/* Floating animation with rotation */
+@keyframes float-rotate {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(5deg); 
+  }
+  50% { 
+    transform: translateY(-25px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-10px) rotate(-5deg); 
+  }
+}
+
+.animate-float-rotate {
+  animation: float-rotate 5s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .font-script {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Canvas container */
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+/* Custom cursor for interactive elements */
+button, 
+[role="button"] {
+  cursor: pointer;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(255, 107, 157, 0.5);
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 107, 157, 0.1),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* Confetti enhancements */
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(-100px) rotate(0deg) scale(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg) scale(0.5);
+  }
+}
+
+/* Sparkle animation */
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.animate-sparkle-twinkle {
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient-text {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.text-gradient-animated {
+  background-size: 200% auto;
+  animation: gradient-text 3s linear infinite;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Border glow animation */
+@keyframes border-glow {
+  0%, 100% {
+    border-color: rgba(255, 107, 157, 0.2);
+  }
+  50% {
+    border-color: rgba(255, 107, 157, 0.5);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
